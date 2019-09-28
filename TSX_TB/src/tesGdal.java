@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class tesGdal {
 	public static void main (String[] ar) {
 		//	String result = null;
@@ -65,97 +67,15 @@ public class tesGdal {
 		//			System.out.println(ex.getMessage());
 		//		}
 		//	}
-		boolean state1=false;
-		boolean state2=true;
-		boolean state3=state1|state2;
-		System.out.println(state3);
-
-
-		char ch='0';
-		int IRightMaxY=5;
-		IRightMaxY=10-Character.getNumericValue(ch);
-
-		if(IRightMaxY==10){
-			IRightMaxY=0;
+	File mainFold=new File("F:\\2019\\TSX_TB\\tesError");
+	File[] mainFoldCont=mainFold.listFiles(); 
+		String Err=mainFoldCont[0].getAbsolutePath();
+		System.out.println("Err="+Err);
+		String[] sampleAr2=Err.split("\\"+File.separator);
+		String sampleLast2=sampleAr2[sampleAr2.length-1];
+		for(int i=0;i<sampleAr2.length;i++) {
+			System.out.println("sampleAr2["+i+"]="+sampleAr2[i]);
 		}
-
-
-		double dob=1.9;
-		//Math.round((ulXTemp+0.1)*100.0)
-		dob=Math.round((dob+0.1)*100.0);
-		dob=dob/100.0;
-		System.out.println("dob="+dob);
-
-		String cobaSplit="TSX1_SAR-20171225T223912-HH.corners.txt";
-		String[] separate=cobaSplit.split("\\.");
-		for(int i=0;i<separate.length;i++) {
-			System.out.println("separate="+separate[i]);
-		}
-
-		String foldName="TDX1_SAR__EEC_SE___HS_S_SRA_20171106T103504_20171106T103505";
-
-		String reg="TSX1_SAR.*20171106T103504.*";
-
-		if(foldName.matches(reg)) {
-			System.out.println(foldName);
-		}
-		else {
-			System.out.println("wrong");
-		}
-
-		char found='c';
-		boolean yes=true;
-		if(found=='d') {
-
-			System.out.println(yes);
-		}
-		else {
-			yes=false;
-			System.out.println(yes);
-		}
-
-		String get="ghost";
-		char[] getAr=get.toCharArray();
-		if(getAr[getAr.length-1]=='t') {
-			System.out.println("yes,t");
-		}
-		else {
-			System.out.println("not 't'");
-		}
-
-		String tesName="TDX1_SAR__EEC_SE___HS_S_SRA_20171106T103504_20171106T103505";
-		String tesName2="TDX1_SAR__EEC_SE___HS_S_SRA_20171106T103504_20171106T103505";
-		if(tesName.equals(tesName2)) {
-			System.out.println("equals");
-		}
-		else {
-			System.out.println("not equals");
-		}
-		
-		
-		double[] latlon=new double[4];
-		double ulXTemp=94.9;
-		double ulYTemp=5.9;
-		latlon[2]=141.1;
-		latlon[3]=-11.1;
-		double ulCutX=Math.round((ulXTemp-0.01)*100.0);
-		ulCutX=ulCutX/100.0;
-		//double cutMaxY=oriMaxY;sizeMinX
-		double ulCutY=Math.round((ulYTemp+0.01)*100.0);
-		ulCutY=ulCutY/100.0;
-
-		double lrCutX=Math.round((ulXTemp+0.11)*100.0);
-		lrCutX=lrCutX/100.0;
-		double lrCutY=Math.round((ulYTemp-0.11)*100.0);
-		lrCutY=lrCutY/100.0;
-		
-		System.out.println("ulCutX="+ulCutX+"\n"+"ulCutY="+ulCutY+"\n"+"lrCutX="+lrCutY+"\n"+"lrCutY="+lrCutY);
-		String cobaTiles="N01E121_10,N01E121_11,N01E121_12,N01E121_13,N01E121_14,";
-		String[] splitTiles=cobaTiles.split(",");
-		for (int i=0;i<splitTiles.length;i++) {
-			System.out.println(splitTiles[i]);
-		}
-		
 	}
 	
 	
